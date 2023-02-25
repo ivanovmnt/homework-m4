@@ -1,0 +1,7 @@
+FROM iivanovbgp/php74-nginx
+
+# Copy Nginx configuration and fpm default pool file to the container
+COPY ./web /var/www/html
+
+# Start PHP-FPM and Nginx
+CMD ["sh", "-c", "service php7.4-fpm start && nginx -g 'daemon off;'"]
